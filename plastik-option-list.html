@@ -1,0 +1,171 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../plastik-selector/plastik-multi-selectable.html">
+
+<!--
+`plastik-option-list` is a listbox that represents a list of selectable options
+that can be used in place of a group of radio buttons or check buttons for
+filtering on a search form or similar use cases.
+
+`plastik-option-list` provides the same behavior as `plastik-selector`, and
+thus, any attributes and functionality supported by `plastik-selector` are
+likewise supported by `plastik-option-list`.
+
+### Example
+
+```html
+    <plastik-option-list multi attr-for-reset="reset" attr-for-selected="value">
+        <div value="" reset>Any</div>
+        <div value="tier1">Free</div>
+        <div value="tier2">$1 - $100</div>
+        <div value="tier3">$101 - $500</div>
+        <div value="tier4">$501+</div>
+    </plastik-option-list>
+```
+
+## Compact mode
+
+In compact mode, items in `plastik-option-list` cumulatively take up the entire
+width of the element and are wrapped. This is useful for situations where there
+is limited screen space, such as on a mobile phone. A recommended best practice
+is to enable compact mode when the screen's width is under a certain threshhold.
+
+Compact mode is enabled simply by applying the `compact` class to the element.
+
+### Example
+
+```html
+    <plastik-option-list attr-for-selected="value" class="compact">
+        <div value="5">Up to 5 miles</div>
+        <div value="10">Up to 10 miles/div>
+        <div value="20">Up to 20 miles/div>
+        <div value="&gt;20">Over 20 miles/div>
+    </plastik-option-list>
+```
+ 
+## Styling
+
+`plastik-option-list` uses three CSS mixins to allow for customization.
+ 
+ - `--item-theme` is applied to all items.
+ - `--compact-item-theme` is applied to all items when the element is in
+   compact mode.
+ - `--selected-item-theme` is applied to all selected items.
+ - `--wrapper-theme` is applied to the wrapper node which contains all
+   of the items.
+ - `--compact-wrapper-theme` is applied to the wrapper node when the element
+   is in compact mode.
+
+### Example
+
+```html
+    <dom-module id="my-custom-element">
+      <style>
+        :host {
+          --selected-element-theme: {
+            background-color: #B3E5FC;
+            color: #000;
+          };
+        }
+      </style>
+      
+      <template>
+        <div>Search for:</div>
+        <plastik-option-list multi attr-for-reset="reset">
+          <paper-item>Any rating</paper-item>
+          <paper-item>1 star</paper-item>
+          <paper-item>2 stars</paper-item>
+          <paper-item>3 stars</paper-item>
+          <paper-item>4 stars</paper-item>
+          <paper-item>5 stars</paper-item>
+        </plastik-option-list>
+      ...
+```
+
+-->
+<dom-module id="plastik-option-list">
+
+  <style>
+    :host {
+        color: #212121;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 2px;
+        text-align: center;
+    }
+    
+    :host, .elem-content-wrapper {
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+        @apply(--wrapper-theme);
+    }
+    
+    .elem-content-wrapper {
+        width: 100%;
+    }
+    
+    .elem-content-wrapper > ::content div {
+        padding: 16px;
+    }
+    
+    .elem-content-wrapper > ::content div, .elem-content-wrapper > ::content paper-item, .elem-content-wrapper > ::content paper-icon-item {
+        max-width: none;
+        width: auto;
+        min-width: 50px;
+        -webkit-user-select: none;
+        -moz-user-select: -moz-none;
+        user-select: none;
+        cursor: pointer;
+        @apply(--item-theme);
+    }
+    
+    :host.compact, :host.compact .elem-content-wrapper {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        @apply(--compact-wrapper-theme);
+    }
+    
+    :host.compact .elem-content-wrapper > ::content div, :host.compact .elem-content-wrapper > ::content paper-item, :host.compact .elem-content-wrapper > ::content paper-icon-item {
+        flex-grow: 1;
+        min-width: 33.333%;
+        @apply(--compact-item-theme);
+    }
+    
+    .elem-content-wrapper > ::content div, .elem-content-wrapper > ::content paper-item, .elem-content-wrapper > ::content paper-icon-item {
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        font-weight: 400;
+    }
+    
+    .elem-content-wrapper > ::content div.iron-selected, .elem-content-wrapper > ::content paper-item.iron-selected, .elem-content-wrapper > ::content paper-icon-item.iron-selected {
+        background-color: #3F51B5;
+        color: #fff;
+        font-weight: 500;
+        @apply(--selected-item-theme);
+    }
+    
+    .elem-content-wrapper > ::content div, paper-item::shadow paper-item-body, paper-icon-item::shadow paper-item-body {
+        text-align: center;
+    }
+  </style>
+
+  <template>
+    <div class="elem-content-wrapper">
+      <content></content>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'plastik-option-list',
+    behaviors: [
+      Polymer.PlastikMultiSelectableBehavior
+    ]
+  });
+</script>
