@@ -23,7 +23,7 @@
     "/demo/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#v0.9.0-rc.1",
+    "polymer": "Polymer/polymer#^0.9.0",
     "plastik-selector": "Plastikit/plastik-selector"
   },
   "devDependencies": {
@@ -32,6 +32,6 @@
     "paper-item": "PolymerElements/paper-item#^0.9.0",
     "test-fixture": "PolymerElements/test-fixture#^0.9.0",
     "web-component-tester": "*",
-    "webcomponentsjs": "~0.6.0"
+    "webcomponentsjs": "^0.6.0"
   }
 }
