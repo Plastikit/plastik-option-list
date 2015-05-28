@@ -8,7 +8,7 @@ inspired by the [filter controls](http://i.imgur.com/kWMxW0X.png) in the new Goo
 `plastik-option-list` provides the same behavior as `plastik-selector`, and thus, any attributes and
 functionality supported by `plastik-selector` are likewise supported by `plastik-option-list`.
 
-Demos and documentation are available on the [component page](https://www.plastikit.org/0.9/components/plastik-option-list/).
+Demos and documentation are available on the [component page](https://www.plastikit.org/1.x/components/plastik-option-list/).
 
 Pull requests are always welcome. If you encounter any bugs, please feel free to [submit an issue](https://github.com/Plastikit/plastik-option-list/issues/new/).
 
@@ -19,7 +19,7 @@ bower install Plastikit/plastik-option-list --save
 ```
 ## Basic usage
 
- > _See [component page](https://www.plastikit.org/0.9/components/plastik-option-list/) for more details._
+ > _See [component page](https://www.plastikit.org/1.x/components/plastik-option-list/) for more details._
 
 ```html
     <plastik-option-list multi attr-for-reset="reset" attr-for-selected="value">

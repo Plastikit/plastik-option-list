@@ -81,6 +81,9 @@ Compact mode is enabled simply by applying the `compact` class to the element.
       ...
 ```
 
+@group UI Elements
+@element plastik-option-list
+@demo demo/index.html
 -->
 <dom-module id="plastik-option-list">
 
@@ -122,13 +125,13 @@ Compact mode is enabled simply by applying the `compact` class to the element.
         @apply(--item-theme);
     }
     
-    :host.compact, :host.compact .elem-content-wrapper {
+    :host(.compact), :host(.compact) .elem-content-wrapper {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         @apply(--compact-wrapper-theme);
     }
     
-    :host.compact .elem-content-wrapper > ::content div, :host.compact .elem-content-wrapper > ::content paper-item, :host.compact .elem-content-wrapper > ::content paper-icon-item {
+    :host(.compact) .elem-content-wrapper > ::content div, :host(.compact) .elem-content-wrapper > ::content paper-item, :host(.compact) .elem-content-wrapper > ::content paper-icon-item {
         flex-grow: 1;
         min-width: 33.333%;
         @apply(--compact-item-theme);

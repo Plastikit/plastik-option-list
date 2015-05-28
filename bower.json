@@ -1,6 +1,6 @@
 {
   "name": "plastik-option-list",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "authors": [
     "The Plastikit Authors <developers@plastikit.org>"
   ],
@@ -23,15 +23,14 @@
     "/demo/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^0.9.0",
-    "plastik-selector": "Plastikit/plastik-selector"
+    "polymer": "Polymer/polymer#^1.0.0",
+    "plastik-selector": "Plastikit/plastik-selector#^0.0.2"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^0.9.0",
-    "iron-doc-viewer": "PolymerElements/iron-doc-viewer#^0.9.0",
-    "paper-item": "PolymerElements/paper-item#^0.9.0",
-    "test-fixture": "PolymerElements/test-fixture#^0.9.0",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0",
+    "paper-item": "PolymerElements/paper-item#^1.0.0",
     "web-component-tester": "*",
-    "webcomponentsjs": "^0.6.0"
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }
 }
